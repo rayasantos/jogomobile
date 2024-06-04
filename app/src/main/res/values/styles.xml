@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Tema padrão -->
+    <style name="Theme.JogoDaGarrafa" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Definições de cores, barras de status, etc. -->
+    </style>
+
+    <!-- Tema claro -->
+    <style name="Theme.JogoDaGarrafa.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Definições de cores, barras de status, etc. -->
+    </style>
+
+    <!-- Tema escuro -->
+    <style name="Theme.JogoDaGarrafa.Dark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Definições de cores, barras de status, etc. -->
+    </style>
+
+    <!-- Tema padrão renomeado para corresponder ao segundo conjunto de temas -->
+    <style name="Theme.JogoDaGarrafa.Default" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Defina os atributos específicos do tema padrão, se necessário -->
+    </style>
+
+</resources>

@@ -1,42 +1,69 @@
 package com.example.jogodagarrafa;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
-import android.widget.ImageView;
-import java.util.Random;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView garrafa;
-    private Random random = new Random();
-    private int ultimaDirecao;
-
     @Override
-   protected void onCreate(Bundle savedInstanceState){
-       super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        garrafa = findViewById(R.id.garrafa);
-
-        garrafa.setOnClickListener(new View.OnClickListener(){
+        Button startGameButton = findViewById(R.id.btn_start_game);
+        startGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-
-                int novaDirecao = random.nextInt(1800);
-                float eixoX = garrafa.getWidth() / 2;
-                float eixoY = garrafa.getHeight() / 2;
-
-                Animation girar= new RotateAnimation(ultimaDirecao, novaDirecao, eixoX, eixoY);
-                girar.setDuration(2500);
-                girar.setFillAfter(true);
-
-                ultimaDirecao = novaDirecao;
-                garrafa.startAnimation(girar);
-
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                startActivity(intent);
             }
         });
-   }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (itemId == R.id.action_share) {
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Estou jogando Jogo Da Garrafa!");
+            shareIntent.setType("text/plain");
+            startActivity(Intent.createChooser(shareIntent, "Share via"));
+            return true;
+        } else if (itemId == R.id.action_user_profile) {
+            Intent intent = new Intent(this, UserProfileActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+

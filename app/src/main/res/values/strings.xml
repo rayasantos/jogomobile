@@ -1,3 +1,41 @@
 <resources>
-    <string name="app_name">jogo da garrafa</string>
+    <string name="app_name">Jogo Da Garrafa</string>
+    <string name="achievements_title">Conquistas</string>
+    <string name="settings_title">Configurações</string>
+    <string name="start_game">Iniciar Jogo</string>
+    <string name="settings">Configurações</string>
+    <string name="achievements">Conquistas</string>
+    <string name="garrafa_desc">Garrafa para girar</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_share">Compartilhar</string>
+    <string name="fundo_desc">Descrição do fundo</string>
+    <string name="username_hint">Nome de Usuário</string>
+    <string name="password_hint">Senha</string>
+    <string name="login">Login</string>
+    <string name="save_profile">Salvar Perfil</string>
+    <string name="open_camera">Abrir Câmera</string>
+    <string name="imageView_description">Descrição da imagem do perfil</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="profile_picture_desc">Profile Picture</string>
+    <string name="save">Save</string>
+    <string name="enter_name_hint">Enter your name</string>
+    <string name="enter_name_desc">Enter your name here</string>
+    <string name="enter_email_hint">Enter your email</string>
+    <string name="enter_email_desc">Enter your email here</string>
+    <string name="profile_pic_desc">Profile picture</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="take_photo_desc">Take a new photo</string>
+    <string name="default_theme">Tema Padrão</string>
+    <string name="light_theme">Tema Claro</string>
+    <string name="dark_theme">Tema Escuro</string>
+
 </resources>
+
+
+
+
+
+
+
+
