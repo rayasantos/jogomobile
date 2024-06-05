@@ -29,6 +29,8 @@
     <string name="default_theme">Tema Padrão</string>
     <string name="light_theme">Tema Claro</string>
     <string name="dark_theme">Tema Escuro</string>
+    <string name="user_profile_title">Perfil de Usuário</string>
+    <string name="share_title">Compartilhar</string>
 
 </resources>
 

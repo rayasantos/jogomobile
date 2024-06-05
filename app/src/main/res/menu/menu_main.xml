@@ -3,20 +3,21 @@
 
     <item
         android:id="@+id/action_user_profile"
-        android:title="Perfil de Usuário"
+        android:title="@string/user_profile_title"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_settings"
-        android:title="Configurações"
+        android:title="@string/settings_title"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_share"
-        android:title="Compartilhar"
+        android:title="@string/share_title"
         app:showAsAction="never" />
 
 </menu>
+
 
 
 
