@@ -20,7 +20,6 @@ public class UserProfileActivity extends AppCompatActivity {
     private EditText editTextName;
     private EditText editTextEmail;
     private ImageView imageViewProfile;
-    private Button buttonSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,8 @@ public class UserProfileActivity extends AppCompatActivity {
         editTextName = findViewById(R.id.editTextName);
         editTextEmail = findViewById(R.id.editTextEmail);
         imageViewProfile = findViewById(R.id.imageViewProfile);
-        buttonSave = findViewById(R.id.buttonSave); // Referenciando o botão buttonSave
+
+        Button buttonSave = findViewById(R.id.buttonSave); // Declarar o botão como uma variável local
 
         imageViewProfile.setOnClickListener(v -> {
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -58,3 +58,4 @@ public class UserProfileActivity extends AppCompatActivity {
         }
     }
 }
+
