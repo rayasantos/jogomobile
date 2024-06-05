@@ -18,8 +18,6 @@ import java.util.Random;
 public class GameActivity extends AppCompatActivity {
 
     private ImageView garrafa;
-    private final Random random = new Random();
-
     private int ultimaDirecao;
     private SharedPreferences prefs;
 
@@ -48,6 +46,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void girarGarrafa() {
+        Random random = new Random();
         int novaDirecao = random.nextInt(1800);
         float eixoX = garrafa.getWidth() / 2;
         float eixoY = garrafa.getHeight() / 2;
@@ -88,6 +87,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 }
+
 
 
 
