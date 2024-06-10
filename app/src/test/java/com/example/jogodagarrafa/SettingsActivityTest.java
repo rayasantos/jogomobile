@@ -1,15 +1,16 @@
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+package com.example.jogodagarrafa;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.view.MenuItem;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.SharedPreferences.Editor;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class SettingsActivityTest {
 
@@ -22,18 +23,21 @@ public class SettingsActivityTest {
 
     @Test
     public void testLoadSettings() {
-        SharedPreferences.Editor editor = mock(SharedPreferences.Editor.class);
-        SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-        when(sharedPreferences.edit()).thenReturn(editor);
-        when(editor.putString(anyString(), anyString())).thenReturn(editor);
-        when(editor.apply()).thenReturn(true);
+        // Configuração do mock do SharedPreferences.Editor
+        Editor editor = mock(Editor.class);
+        when(editor.putString(anyString(), anyString())).thenReturn(editor); // Mock do método putString
 
+        // Configuração do mock do SharedPreferences
+        SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+        when(sharedPreferences.edit()).thenReturn(editor); // Mock do método edit
+
+        // Simulando a chamada do método onCreate
         settingsActivity.onCreate(null);
 
-        // Simular a alteração de uma configuração
+        // Simulando a alteração de uma configuração
         settingsActivity.onPreferenceChange(sharedPreferences, "theme_choice", "dark");
 
-        // Verificar se a configuração foi salva corretamente
+        // Verificando se a configuração foi salva corretamente
         verify(editor).putString("theme_choice", "dark");
         verify(editor).apply();
     }

@@ -11,17 +11,14 @@
         android:text="@string/start_game"
         android:layout_centerInParent="true" />
 
+    <Button
+        android:id="@+id/action_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:layout_below="@id/btn_start_game"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-

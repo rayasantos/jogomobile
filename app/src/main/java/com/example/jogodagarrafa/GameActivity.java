@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -15,12 +16,14 @@ import androidx.preference.PreferenceManager;
 
 import java.util.Random;
 
+import missing.namespace.R;
+
 public class GameActivity extends AppCompatActivity {
 
     private ImageView garrafa;
     private final Random random = new Random();
+    private int ultimaDirecao = 0; // Inicializando ultimaDirecao
 
-    private int ultimaDirecao;
     private SharedPreferences prefs;
 
     @Override
@@ -44,10 +47,15 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         garrafa = findViewById(R.id.garrafa);
-        garrafa.setOnClickListener(v -> girarGarrafa());
+        garrafa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                girarGarrafa();
+            }
+        });
     }
 
-    private void girarGarrafa() {
+    void girarGarrafa() {
         int novaDirecao = random.nextInt(1800);
         float eixoX = garrafa.getWidth() / 2;
         float eixoY = garrafa.getHeight() / 2;
@@ -73,32 +81,25 @@ public class GameActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
+            openSettings();
             return true;
         } else if (itemId == R.id.action_share) {
-            Intent shareIntent = new Intent();
-            shareIntent.setAction(Intent.ACTION_SEND);
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "Estou jogando Jogo Da Garrafa!");
-            shareIntent.setType("text/plain");
-            startActivity(Intent.createChooser(shareIntent, "Share via"));
+            shareGame();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
+
+    private void openSettings() {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
+    private void shareGame() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Estou jogando Jogo Da Garrafa!");
+        shareIntent.setType("text/plain");
+        startActivity(Intent.createChooser(shareIntent, "Share via"));
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

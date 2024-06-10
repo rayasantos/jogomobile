@@ -14,6 +14,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import missing.namespace.R;
+
 public class MainActivityTest {
 
     private MainActivity mainActivity;
